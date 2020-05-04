@@ -1,0 +1,141 @@
+[
+    {
+      "topicId": 1,
+      "postedBy": "Jermey Bentham",
+      "id": 1,
+      "title": "Component Lifecycle",
+      "body": [
+        "Component Lifecycle is a new addition in React 16.8. They let you use state and other React features without writing a class.",
+        "While this.props is set up by React itself and this.state has a special meaning, you are free to add additional fields to the class manually if you need to store something that doesn’t participate in the data flow (like a timer ID).",
+        "Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn’t care whether it is defined as a function or a class."
+      ]
+    },
+    {
+      "topicId": 2,
+      "postedBy": "Avery Somerville",
+      "id": 2,
+      "title": "Hooks",
+      "body": [
+        "Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.",
+        "React doesn’t offer a way to “attach” reusable behavior to a component (for example, connecting it to a store). If you’ve worked with React for a while, you may be familiar with patterns like render props and higher-order components that try to solve this. But these patterns require you to restructure your components when you use them, which can be cumbersome and make code harder to follow. If you look at a typical React application in React DevTools, you will likely find a “wrapper hell” of components surrounded by layers of providers, consumers, higher-order components, render props, and other abstractions. While we could filter them out in DevTools, this points to a deeper underlying problem: React needs a better primitive for sharing stateful logic",
+        "In many cases it’s not possible to break these components into smaller ones because the stateful logic is all over the place. It’s also difficult to test them. This is one of the reasons many people prefer to combine React with a separate state management library. However, that often introduces too much abstraction, requires you to jump between different files, and makes reusing components more difficult."
+      ]
+    },
+    {
+      "topicId": 3,
+      "postedBy": "Daniel Hacker",
+      "id": 3,
+      "title": "Functional Programming",
+      "body": [
+        "Functional Programming new addition in React 16.8. They let you use state and other React features without writing a class.",
+        "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. It is a declarative programming paradigm in that programming is done with expressions or declarations[1] instead of statements. In functional code, the output value of a function depends only on its arguments, so calling a function with the same value for an argument always produces the same result. This is in contrast to imperative programming where, in addition to a function's arguments, global program state can affect a function's resulting value. One of the key motivations for the development of functional programming is making a program easier to understand by eliminating changes in state that do not depend on function inputs which are called side effects.",
+        "Functional programming has its origins in lambda calculus, a formal system developed in the 1930s to investigate computability, the Entscheidungsproblem, function definition, function application, and recursion. Many functional programming languages can be viewed as elaborations on the lambda calculus. Another well-known declarative programming paradigm, logic programming, is based on relations."
+      ]
+    },
+    {
+      "topicId": 4,
+      "postedBy": "Isabelle Marriott",
+      "id": 4,
+      "title": "Usage with Redux",
+      "body": [
+        "Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to (and inspired by) Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark.",
+        "Abramov was struck by the similarity of the Flux pattern with a reducing function. 'I was thinking about Flux as a reduce operation over time... your stores, they accumulate state in response to these actions. I was thinking of taking this further. What if your Flux store was not a store but a reducer function?'",
+        "Abramov reached out to Clark (author of the Flux implementation Flummox) as a collaborator. Among other things, he credits Clark with making the Redux ecosystem of tools possible, helping to come up with a coherent API, implementing extension points such as middleware and store enhancers."
+      ]
+    },
+    {
+      "topicId": 5,
+      "postedBy": "Mill Thompson",
+      "id": 5,
+      "title": "Virtual DOM",
+      "body": [
+        "React creates a tree of custom objects representing a part of the DOM. For example, instead of creating an actual DIV element containing a UL element, it creates a React.div object that contains a React.ul object. It can manipulate these objects very quickly without actually touching the real DOM or going through the DOM API. Then, when it renders a component, it uses this virtual DOM to figure out what it needs to do with the real DOM to get the two trees to match.",
+        "You can think of the virtual DOM like a blueprint. It contains all the details needed to construct the DOM, but because it doesn't require all the heavyweight parts that go into a real DOM, it can be created and changed much more easily."
+      ]
+    },
+    {
+      "topicId": 6,
+      "postedBy": "Stuart Heyday",
+      "id": 6,
+      "title": "Handling Events",
+      "body": [
+        "Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:",
+        "When using React, you generally don’t need to call addEventListener to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered."
+      ]
+    },
+    {
+      "topicId": 7,
+      "postedBy": "Adam Hany",
+      "id": 7,
+      "title": "Forms",
+      "body": [
+        "HTML form elements work a little bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name",
+        "In HTML, form elements such as <input>, <textarea>, and <select> typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with setState()."
+      ]
+    },
+    {
+      "topicId": 8,
+      "postedBy": "Bradley Chambers",
+      "id": 8,
+      "title": "Composition vs Inheritance",
+      "body": [
+        "Component vs Inheritance is a powerful composition model, and we recommend using composition instead of inheritance to reuse code between components",
+        "Anything inside the <FancyBorder> JSX tag gets passed into the FancyBorder component as a children prop. Since FancyBorder renders {props.children} inside a <div>, the passed elements appear in the final output",
+        "React elements like <Contacts /> and <Chat /> are just objects, so you can pass them as props like any other data. This approach may remind you of “slots” in other libraries but there are no limitations on what you can pass as props in React"
+      ]
+    },
+    {
+      "topicId": 9,
+      "postedBy": "Emily Frost",
+      "id": 9,
+      "title": "JSX",
+      "body": [
+        "It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.",
+        "Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns with loosely coupled units called “components” that contain both. We will come back to components in a further section, but if you’re not yet comfortable putting markup in JS, this talk might convince you otherwise."
+      ]
+    },
+    {
+      "topicId": 10,
+      "postedBy": "Emily Frost",
+      "id": 10,
+      "title": "List and Keys",
+      "body": [
+        "List and Keys a new addition in React 16.8. They let you use state and other React features without writing a class.",
+        "When you run this code, you’ll be given a warning that a key should be provided for list items. A “key” is a special string attribute you need to include when creating lists of elements. We’ll discuss why it’s important in the next section.",
+        "We don’t recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny’s article for an in-depth explanation on the negative impacts of using an index as a key. If you choose not to assign an explicit key to list items then React will default to using indexes as keys."
+      ]
+    },
+    {
+      "topicId": 11,
+      "postedBy": "Emily Frost",
+      "id": 11,
+      "title": "Props and State",
+      "body": [
+        "Props and State is a new addition in React 16.8. They let you use state and other React features without writing a class.",
+        "React doesn’t offer a way to “attach” reusable behavior to a component (for example, connecting it to a store). If you’ve worked with React for a while, you may be familiar with patterns like render props and higher-order components that try to solve this. But these patterns require you to restructure your components when you use them, which can be cumbersome and make code harder to follow. If you look at a typical React application in React DevTools, you will likely find a “wrapper hell” of components surrounded by layers of providers, consumers, higher-order components, render props, and other abstractions. While we could filter them out in DevTools, this points to a deeper underlying problem: React needs a better primitive for sharing stateful logic",
+        "In many cases it’s not possible to break these components into smaller ones because the stateful logic is all over the place. It’s also difficult to test them. This is one of the reasons many people prefer to combine React with a separate state management library. However, that often introduces too much abstraction, requires you to jump between different files, and makes reusing components more difficult."
+      ]
+    },
+    {
+      "topicId": 12,
+      "postedBy": "Emily Frost",
+      "id": 12,
+      "title": "Testing",
+      "body": [
+        "Testing is a new addition in React 16.8. They let you use state and other React features without writing a class.",
+        "This documentation section focuses on testing strategies for the first case. While full end-to-end tests can be very useful to prevent regressions to important workflows, such tests are not concerned with React components in particular, and are out of the scope of this section.",
+        "Jest is a JavaScript test runner that lets you access the DOM via jsdom. While jsdom is only an approximation of how the browser works, it is often good enough for testing React components. Jest provides a great iteration speed combined with powerful features like mocking modules and timers so you can have more control over how the code executes."
+      ]
+    },
+    {
+      "topicId": 13,
+      "postedBy": "Emily Frost",
+      "id": 13,
+      "title": "Thinking in React",
+      "body": [
+        "Thinking in React is a new addition in React 16.8. They let you use state and other React features without writing a class.",
+        "React doesn’t offer a way to “attach” reusable behavior to a component (for example, connecting it to a store). If you’ve worked with React for a while, you may be familiar with patterns like render props and higher-order components that try to solve this. But these patterns require you to restructure your components when you use them, which can be cumbersome and make code harder to follow. If you look at a typical React application in React DevTools, you will likely find a “wrapper hell” of components surrounded by layers of providers, consumers, higher-order components, render props, and other abstractions. While we could filter them out in DevTools, this points to a deeper underlying problem: React needs a better primitive for sharing stateful logic",
+        "In many cases it’s not possible to break these components into smaller ones because the stateful logic is all over the place. It’s also difficult to test them. This is one of the reasons many people prefer to combine React with a separate state management library. However, that often introduces too much abstraction, requires you to jump between different files, and makes reusing components more difficult."
+      ]
+    }
+]
