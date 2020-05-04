@@ -1,19 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export class TopicCard extends React.Component {
+export function TopicCard (props) {
+    let isSelectedClassName = props.isSelected ? 'selected' : ''
+    return (
+            <div className={`${props.className} ${isSelectedClassName} user row`} onClick={props.onClick}>
+                <span className="number">{props.number}.</span>
+                <span className="user-name">{props.name}</span>
+            </div>
 
-
-    render () {
-        let isSelectedClassName = this.props.isSelected ? 'selected' : ''
-        return (
-              <div className={`${this.props.className} ${isSelectedClassName} user row`} onClick={this.props.onClick}>
-                    <span className="number">{this.props.number}.</span>
-                    <span className="user-name">{this.props.name}</span>
-              </div>
-
-        );
-    }
+    );
 }
 
 

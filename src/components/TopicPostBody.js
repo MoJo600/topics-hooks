@@ -1,19 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export class PostBody extends React.Component {
-
-    render () {
-        return (
-            <div className={`${this.props.className} post-body`}>
-                {this.props.content && this.props.content.map((paragraph, idx) => (
-                    <div key={idx} className="paragraph">
-                        {paragraph}
-                    </div>
-                ))}
-            </div>
-        );
-    }
+export function PostBody (props) {
+    return (
+        <div className={`${props.className} post-body`}>
+            {props.content && props.content.map((paragraph, idx) => (
+                <div key={idx} className="paragraph">
+                    {paragraph}
+                </div>
+            ))}
+        </div>
+    );
 }
 
 

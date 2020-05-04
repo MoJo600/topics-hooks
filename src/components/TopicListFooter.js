@@ -1,15 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-export class ChapterFooter extends React.Component {
-    render () {
-        return (
-              <div className={`${this.props.className} chapter-footer`}/>
-        );
-    }
+export function ChapterFooter (props) {
+    return (
+         <div className={`${props.className} chapter-footer`}/>
+    );
 }
-
 
 
 export default styled(ChapterFooter) `

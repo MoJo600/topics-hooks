@@ -4,31 +4,26 @@ import ListFooter from './TopicListFooter';
 import ListHeader from './TopicListHeader';
 import TopicListRow from './TopicListRow';
 
-export class TopicsList extends React.Component {
-
-    render () {
-        return (
-            <div className={`${this.props.className}`}>
-                <div className="topic-list">
-                    <ListHeader/>
-                    {this.props.topics && this.props.topics.map((topic, idx) => (
-                        <TopicListRow
-                            number={idx + 1}
-                            key={topic.id}
-                            name={topic.name}
-                            isSelected={this.props.selectedTopicId && this.props.selectedTopicId === topic.id}
-                            onClick={this.props.onClickTopic(topic.id)}
-                        />
-                    ))}
-                    <ListFooter/>
-                </div>
-                <div className="divider"/>
+export function TopicsList (props) {
+    return (
+        <div className={`${props.className}`}>
+            <div className="topic-list">
+                <ListHeader/>
+                {props.topics && props.topics.map((topic, idx) => (
+                    <TopicListRow
+                        number={idx + 1}
+                        key={topic.id}
+                        name={topic.name}
+                        isSelected={props.selectedTopicId && props.selectedTopicId === topic.id}
+                        onClick={props.onClickTopic(topic.id)}
+                    />
+                ))}
+                <ListFooter/>
             </div>
-        );
-    }
+            <div className="divider"/>
+        </div>
+    );
 }
-
-
 
 export default styled(TopicsList) `
 

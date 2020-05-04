@@ -1,62 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchTopics } from './api';
 import './App.css';
 import Dashboard from './components/Dashboard';
 import TopicPost from './components/TopicPost';
 import TopicsList from './components/TopicsList';
 
-export class App extends React.Component {
+export function App (_) {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      selectedTopicId: null,
-      topics: []
-    }
-  }
+  const [topics, setTopics] = useState([])
+  const [selectedTopicId, setSelectedTopicId] = useState(null)
 
-  fetchData = () => {
-    fetchTopics().then(topics => this.setState({ topics }))
-  }
+  useEffect(() => {
+    fetchTopics().then(topics => setTopics(topics))
+  })
 
-
-  componentWillMount () {
-    this.fetchData()
-  }
-
-  renderTopicsList = () => {
-    if (this.state.topics && this.state.topics.length !== 0) {
+  function renderTopicsList () {
+    if (topics && topics.length !== 0) {
        return (
         <TopicsList
-          topics={this.state.topics}
-          onClickTopic={this.onClickTopicCard}
-          selectedTopicId={this.state.selectedTopicId}
+          topics={topics}
+          onClickTopic={onClickTopicCard}
+          selectedTopicId={selectedTopicId}
         />
         )
     }
   }
 
-  renderTopicPost = () => {
-    if (this.state.selectedTopicId) {
+  function renderTopicPost () {
+    if (selectedTopicId) {
       return (
-        <TopicPost selectedTopicId={this.state.selectedTopicId}/>
+        <TopicPost selectedTopicId={selectedTopicId}/>
       )
     }
   }
 
 
-  onClickTopicCard = (selectedTopicId) => () => {
-    this.setState({ selectedTopicId })
+  function onClickTopicCard (selectedTopicId) {
+    return  () => {
+      setSelectedTopicId(selectedTopicId)
+    }
   }
 
-  render () {
-    return (
-      <Dashboard>
-          {this.renderTopicsList()}
-          {this.renderTopicPost()}
-      </Dashboard>
-    );
-  }
+  return (
+    <Dashboard>
+        {renderTopicsList()}
+        {renderTopicPost()}
+    </Dashboard>
+  );
 }
 
 export default App;
