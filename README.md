@@ -1,4 +1,4 @@
-### React Topics
+## React Topics
 
 A demo React application showing a sidebar menu of React topics that you can learn more about.
 
