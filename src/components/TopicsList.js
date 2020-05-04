@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import TopicCard from './TopicCard';
 import ListFooter from './TopicListFooter';
 import ListHeader from './TopicListHeader';
+import TopicListRow from './TopicListRow';
 
 export class TopicsList extends React.Component {
 
@@ -12,7 +12,7 @@ export class TopicsList extends React.Component {
                 <div className="topic-list">
                     <ListHeader/>
                     {this.props.topics && this.props.topics.map((topic, idx) => (
-                        <TopicCard
+                        <TopicListRow
                             number={idx + 1}
                             key={topic.id}
                             name={topic.name}

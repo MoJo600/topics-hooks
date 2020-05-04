@@ -1,44 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fetchTopicPost } from '../api';
+import { useTopicPostHook } from '../hooks';
 import PostBody from './TopicPostBody';
 import PostHeader from './TopicPostHeader';
 
+export function TopicPost (props) {
+    const topicPost = useTopicPostHook(props.selectedTopicId)
+    const title = topicPost ? topicPost.title : null
+    const author = topicPost ? topicPost.postedBy : null
+    const content = topicPost ? topicPost.body : null
+    return (
+        <div className={`${props.className} user-posts`}>
+            <PostHeader title={title} author={author} />
+            <PostBody content={content} />
+        </div>
+    );
 
-export class TopicPost extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            topicPost: null,
-        }
-    }
-
-    fetchPosts = () => {
-        fetchTopicPost(this.props.selectedTopicId)
-                .then(topicPost => this.setState({ topicPost  }))
-    }
-
-    componentDidUpdate (prevProps) {
-        if (this.props.selectedTopicId !== prevProps.selectedTopicId) {
-            this.fetchPosts()
-        }
-    }
-
-    componentDidMount() {
-        if (this.props.selectedTopicId) {
-            this.fetchPosts()
-        }
-    }
-
-    render () {
-        return (
-            <div className={`${this.props.className} user-posts`}>
-                <PostHeader title={this.state.topicPost && this.state.topicPost.title} author={this.state.topicPost && this.state.topicPost.postedBy} />
-                <PostBody content={this.state.topicPost && this.state.topicPost.body} />
-            </div>
-        );
-    }
 }
 
 
