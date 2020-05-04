@@ -1,3 +1,9 @@
+### React Topics
+
+A demo React application showing a sidebar menu of React topics that you can learn more about.
+
+Intended as a demonstration of the differences in implementation between React hooks and classes.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
